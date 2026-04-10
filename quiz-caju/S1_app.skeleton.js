@@ -241,7 +241,10 @@ function mostrarPergunta() {
 
         els.opcoesGrid.appendChild(btn)
     }
+
+    iniciarTimer()
 }
+
 
 // iniciarTimer()
 // Reseta timerSegundos para 20.
@@ -253,7 +256,7 @@ function iniciarTimer() {
     let CIRCUNFERENCIA = 107
 
     estado.timerSegundos = 20;
-    els.timerNum = 20;
+    els.timerNum.textContent = 20;
     els.timerArco.style.strokeDashoffset = 0; 
     els.timerArco.style.stroke = "var(--laranja)";
 
@@ -272,7 +275,10 @@ function iniciarTimer() {
             els.timerArco.style.stroke = "var(--amarelo)"
         }
 
-        
+        if(estado.timerSegundos <=0){
+            clearInterval(estado.timerIntervalo)
+            responder(-1)
+        }
 
     },1000) 
 

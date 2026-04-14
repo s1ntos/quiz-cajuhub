@@ -14,7 +14,7 @@
 //    explicacao → frase curta explicando o porquê
 // =============================================
 
-const perguntas = [
+const perguntasFixas = [
 
   // ── HTML ──────────────────────────────────
   {
@@ -232,7 +232,7 @@ async function buscarDeFonte(fonte, offsetId) {
   let resposta = await fetch(fonte.url)
   let dados = await resposta.json()
 
-  console.log(dados)
+  //console.log(dados)
   if (dados.response_code !== 0) {
     throw new Error("API retornou código " + dados.response_code)
   }
@@ -266,11 +266,11 @@ async function carregarPerguntas() {
     let resultados = await Promise.all(promessas) 
     let totalPerguntas = [].concat.apply([], resultados)
   
-      return embarlhar (totalPerguntas)
+      return embaralhar (totalPerguntas)
 
   } catch (error){
-    console.error("[QuizCaju] Falha ao carregar perguntas", error)
-    return perguntasFixas
+      console.error("[QuizCaju] Falha ao carregar perguntas", error)
+      return perguntasFixas
   }
 }
 

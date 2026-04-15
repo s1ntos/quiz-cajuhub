@@ -358,6 +358,12 @@ function proximaPergunta() {
 }
 
 els.btnProxima.addEventListener('click', proximaPergunta)
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && telas.feedback.classList.contains('ativa')) {
+        proximaPergunta()
+    }
+})
 // mostrarResultado()
 // Calcula aproveitamento. Define medalha e mensagem.
 // Atualiza DOM da tela de resultado.

@@ -134,13 +134,6 @@ function embaralhar(array) {
     }
     return copia
 }
-let resultado = embaralhar([1, 2, 3, 4, 5, 6])
-let resultado1 = embaralhar([1, 2, 3, 4, 5, 6])
-let resultado2 = embaralhar([1, 2, 3, 4, 5, 6])
-console.log(resultado)
-console.log(resultado1)
-console.log(resultado2)
-
 // calcularPontos(segundosRestantes)
 // Retorna: 500 + (segundosRestantes * 25)
 function calcularPontos(segundosRestantes) {
@@ -356,7 +349,6 @@ function mostrarFeedback(acertou, pontosGanhos, explicacao) {
 // Senão → mostrarResultado().
 function proximaPergunta() {
     estado.indiceAtual++
-    console.log(estado.indiceAtual)
     if (estado.indiceAtual < estado.perguntasJogo.length){
         mostrarTela("questao")
         mostrarPergunta()

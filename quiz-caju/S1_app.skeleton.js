@@ -341,7 +341,7 @@ function mostrarFeedback(acertou, pontosGanhos, explicacao) {
         els.feedbackIcone.textContent = "❌"
         els.feedbackTitulo.textContent = "Errado!"
         els.feedbackTitulo.className = "feedback-titulo erro"
-        els.feedbackPontos = "+0"
+        els.feedbackPontos.textContent = "+0"
     }
     els.feedbackExplic.textContent = explicacao 
     els.placarParcial.textContent = estado.pontos 

@@ -152,8 +152,16 @@ function calcularPontos(segundosRestantes) {
 async function iniciarJogo() {
     let nome = els.inputNickname.value.trim()
 
+    if (nome.length === 0) {
+        els.erroNickname.textContent = "Ops, digite um nickname para começar."
+        return
+    }
     if (nome.length < 3) {
-        els.erroNickname.textContent = "Digite pelo menos 3 caracteres."
+        els.erroNickname.textContent = "Nickname precisa de pelo menos 3 caracteres."
+        return
+    }
+    if (!/^[a-zA-Z0-9_]+$/.test(nome)) {
+        els.erroNickname.textContent = "Use apenas letras, números e _ (underline)."
         return
     }
 

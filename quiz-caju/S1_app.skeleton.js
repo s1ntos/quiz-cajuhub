@@ -12,6 +12,9 @@
 // Deve ficar no escopo global — fora de qualquer função.
 // ------------------------------------------------------------
 
+const TIMER_MAX = 20
+const TIMER_CIRCUNFERENCIA = 107
+
 const estado = {
     // Nome do jogador
     nickName: "",
@@ -256,12 +259,9 @@ function mostrarPergunta() {
 // A cada 1000ms: decrementa, atualiza DOM, move arco SVG.
 // Se timerSegundos <= 0: clearInterval e responder(-1).
 function iniciarTimer() {
-
-    let CIRCUNFERENCIA = 107
-
-    estado.timerSegundos = 20;
-    els.timerNum.textContent = 20;
-    els.timerArco.style.strokeDashoffset = 0; 
+    estado.timerSegundos = TIMER_MAX;
+    els.timerNum.textContent = TIMER_MAX;
+    els.timerArco.style.strokeDashoffset = 0;
     els.timerArco.style.stroke = "var(--laranja)";
 
     clearInterval(estado.timerIntervalo)
@@ -270,8 +270,8 @@ function iniciarTimer() {
         estado.timerSegundos--
         els.timerNum.textContent = estado.timerSegundos
 
-        let progresso = estado.timerSegundos / 20 
-        els.timerArco.style.strokeDashoffset = CIRCUNFERENCIA * (1 - progresso)
+        let progresso = estado.timerSegundos / TIMER_MAX
+        els.timerArco.style.strokeDashoffset = TIMER_CIRCUNFERENCIA * (1 - progresso)
 
         if (estado.timerSegundos <= 5){
             els.timerArco.style.stroke = "var(--vermelho)"
